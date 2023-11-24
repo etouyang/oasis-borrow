@@ -23,9 +23,12 @@ export function FlashLoanInformation({
   )
   const flashloanToken = transactionParameters.flashloan.token.symbol
 
-  const balancerLiquidity = useBalancerVaultLiquidity({ token: flashloanToken, networkId })
-
   const isFloashLoanWithBalancer = networkId !== NetworkIds.MAINNET
+  const balancerLiquidity = useBalancerVaultLiquidity({
+    token: flashloanToken,
+    networkId,
+    isFloashLoanWithBalancer,
+  })
 
   const liquidityColor = match({ balancerLiquidity, isFloashLoanWithBalancer })
     .with({ isFloashLoanWithBalancer: false }, () => 'primary100')

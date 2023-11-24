@@ -7,8 +7,13 @@ import { useEffect, useState } from 'react'
 type BalancerLiquidityProps = {
   token: string
   networkId: NetworkIds
+  isFloashLoanWithBalancer: boolean
 }
-export const useBalancerVaultLiquidity = ({ token, networkId }: BalancerLiquidityProps) => {
+export const useBalancerVaultLiquidity = ({
+  token,
+  networkId,
+  isFloashLoanWithBalancer,
+}: BalancerLiquidityProps) => {
   const [liquidity, setLiquidity] = useState<BigNumber | null>(null)
   const contracts = getNetworkContracts(networkId)
   ensureContractsExist(networkId, contracts, ['balancerVault'])
@@ -16,14 +21,16 @@ export const useBalancerVaultLiquidity = ({ token, networkId }: BalancerLiquidit
   const { balancerVault } = contracts
 
   useEffect(() => {
-    tokenBalance({ token, account: balancerVault.address, networkId })
-      .then((result) => {
-        setLiquidity(result)
-      })
-      .catch((error) => {
-        console.error(error)
-      })
-  })
+    !liquidity &&
+      isFloashLoanWithBalancer &&
+      tokenBalance({ token, account: balancerVault.address, networkId })
+        .then((result) => {
+          setLiquidity(result)
+        })
+        .catch((error) => {
+          console.error(error)
+        })
+  }, [balancerVault.address, liquidity, networkId, token, isFloashLoanWithBalancer])
 
   return liquidity
 }
