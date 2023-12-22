@@ -1,6 +1,7 @@
 import type { IPosition } from '@oasisdex/dma-library'
 import { getCurrentPositionLibCallData } from 'actions/aave-like/helpers'
 import BigNumber from 'bignumber.js'
+import { Banner } from 'components/Banner'
 import { useAutomationContext } from 'components/context/AutomationContextProvider'
 import { DetailsSection } from 'components/DetailsSection'
 import { DetailsSectionContentCardWrapper } from 'components/DetailsSectionContentCard'
@@ -11,6 +12,7 @@ import {
 import { ContentCardLiquidationPriceV2 } from 'components/vault/detailsSection/ContentCardLiquidationPriceV2'
 import { ContentCardLtv } from 'components/vault/detailsSection/ContentCardLtv'
 import { SparkTokensBannerController } from 'features/aave/components/SparkTokensBannerController'
+import { aaveDiscontinuedTokens } from 'features/aave/constants'
 import { checkElligibleSparkPosition } from 'features/aave/helpers/eligible-spark-position'
 import { calculateViewValuesForPosition } from 'features/aave/services'
 import { ProductType, StrategyType } from 'features/aave/types'
@@ -114,10 +116,23 @@ export function AaveMultiplyPositionData({
     debtToken.symbol,
   )
 
+  const isUSDBCPosition =
+    aaveDiscontinuedTokens.includes(collateralToken.symbol.toUpperCase()) ||
+    aaveDiscontinuedTokens.includes(debtToken.symbol.toUpperCase()) ||
+    true
+
   return (
     <Grid>
       {stopLossTriggered && (
         <StopLossTriggeredBanner descriptionKey="automation.trigger-executed-banner-short-description" />
+      )}
+      {isUSDBCPosition && (
+        <Banner
+          title={'OOPS'}
+          description={
+            'Aave is currently offboarding Bridged USDC (USDbC), which this position is using. It is suggested to switch your position to use Native USDC by closing this position and reopening it here -> [link to opening this pair on the same network]'
+          }
+        />
       )}
       <DetailsSection
         title={t('system.overview')}
