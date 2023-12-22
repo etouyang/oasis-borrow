@@ -6,6 +6,7 @@ import type { OpenAaveDepositBorrowParameters } from 'actions/aave-like/types'
 import { getRpcProvider } from 'blockchain/networks'
 import { getToken } from 'blockchain/tokensMetadata'
 import { amountToWei } from 'blockchain/utils'
+import { ProductType } from 'features/aave/types'
 import type { AaveLikeLendingProtocol } from 'lendingProtocols'
 import { LendingProtocol } from 'lendingProtocols'
 
@@ -49,6 +50,7 @@ export async function getOpenDepositBorrowPositionParameters(
       symbol: collateralToken,
       precision: getToken(collateralToken).precision,
     },
+    useUserEmode: true,
   }
 
   const aaveLikeDeps: Omit<AaveLikeOpenStrategyDeps, 'addresses'> = {

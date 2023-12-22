@@ -9,7 +9,7 @@ import {
 } from 'actions/aave-like/helpers'
 import type { AdjustAaveParameters } from 'actions/aave-like/types'
 import { getRpcProvider } from 'blockchain/networks'
-import { ProxyType } from 'features/aave/types'
+import { ProductType, ProxyType } from 'features/aave/types'
 import type { AaveLendingProtocol } from 'lendingProtocols'
 import { LendingProtocol } from 'lendingProtocols'
 
@@ -38,12 +38,15 @@ export async function getAdjustPositionParameters({
     type AaveLikeAdjustStrategyArgs = Parameters<typeof aaveLikeAjdustStrategyType.adjust>[0]
     type AaveLikeAdjustStrategyDeps = Parameters<typeof aaveLikeAjdustStrategyType.adjust>[1]
 
+    const useUserEmode = _positionType === ProductType.Borrow
+    console.log('emode', useUserEmode)
     const args: AaveLikeAdjustStrategyArgs = {
       slippage,
       multiple: riskRatio,
       debtToken: debtToken,
       collateralToken: collateralToken,
       flashloan: getAaveV3FlashLoanToken(networkId, protocol),
+      useUserEmode,
     }
 
     const stratDeps: Omit<AaveLikeAdjustStrategyDeps, 'addresses' | 'getSwapData'> = {
