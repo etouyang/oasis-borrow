@@ -1,5 +1,8 @@
 {
   "name": "workflow",
+  "workspaces": [
+    "lib/*"
+  ],
   "version": "1.0.0",
   "scripts": {
     "test": "jest",
@@ -34,5 +37,8 @@
     "tsc-alias": "^1.8.8",
     "typescript": "^5.2.2",
     "zx": "^7.2.3"
+  },
+  "dependencies": {
+    "nx": "^17.2.8"
   }
 }

@@ -14,8 +14,6 @@
   },
   "author": "Piter",
   "license": "UNLICENSED",
-  "devDependencies": {
-  },
   "dependencies": {
     "shared": "file:../shared/dist",
     "zod": "^3.22.4"
