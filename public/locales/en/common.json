@@ -2749,7 +2749,7 @@
       "cta-textual": "Open new position"
     },
     "validations": {
-      "safety-switch-on": "Due to a technical issue we have currently disabled depositing tokens into empty {{protocolLabel}} positions, as they might not result in the expected outcome for our users. We are working on a resolution. Further announcements will be made via <0>our discord →</0>"
+      "safety-switch-on": "The community has identified an issue with $AJNA token burning mechanism requiring the redeployment of Layer 2’s AJNA. No funds are at risk in any way. You can manage your positions on old Base deployment for as long as you need. Further announcements will be made via <0>our discord →</0>"
     }
   },
   "ajna": {
