@@ -2682,10 +2682,12 @@
         "footnote": "Max LTV:"
       },
       "collateral-deposited": {
-        "title": "Collateral Deposited"
+        "title": "Collateral Deposited",
+        "modal-description": "This is the amount of tokens you have as collateral for your debt."
       },
       "position-debt": {
-        "title": "Position Debt"
+        "title": "Position Debt",
+        "modal-description": "This is the total number of tokens you have borrowed plus any accrued interests."
       },
       "net-value": {
         "title": "Net Value",
@@ -2777,7 +2779,7 @@
         "modal-description": "The liquidation price represent the price at which it is expected that liquidators successfully action your collateral to repay your debt. Monitor this value compared to market price."
       },
       "ltv": {
-        "footnote": "Dynamic Max LTV:",
+        "footnote": "Dynamic Max LTV",
         "modal-description": "Your Loan to Value ratio represents how much you have borrowed based on your collateral supplied.",
         "modal-footnote-description": "Ajna Max LTV changes with lenders and borrowers activities. Pay attention to not go over the max and risk being liquidated."
       },
@@ -2789,12 +2791,6 @@
         "modal-formula": "debt amount / collateral amount",
         "modal-subtitle": "To avoid liquidation, always ensure your TP < LUP",
         "modal-lup": "Lowest Utilization Price"
-      },
-      "collateral-deposited": {
-        "modal-description": "This is the amount of tokens you have as collateral for your debt."
-      },
-      "position-debt": {
-        "modal-description": "This is the total number of tokens you have borrowed plus any accrued interests."
       },
       "modal-earn-description": "The total amount of tokens available in position, this includes the earned amount.",
       "borrow-rate": {
@@ -3042,6 +3038,13 @@
     }
   },
   "morpho": {
+    "content-card": {
+      "ltv": {
+        "footnote": "Max Loan to Value",
+        "modal-description": "Your Loan to Value ratio represents how much you have borrowed based on your collateral supplied.",
+        "modal-footnote-description": "The Max Loan to Value (LTV) ratio defines the maximum amount that can be borrowed with your collateral. If your LTV rises above the Max Loan to Value, the position is undercollateralised and could be liquidated."
+      }
+    },
     "position-page": {
       "common": {
         "form": {
