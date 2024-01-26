@@ -58,50 +58,6 @@ function BetterOnSummerPage({
     <MarketingLayout topBackground="none" backgroundGradient={palette.mainGradient}>
       <Box sx={{ width: '100%' }}>
         <MarketingTemplateHero {...hero} />
-        <ComparisionTable
-          header={[
-            <Box>Protocol Tradeoffs</Box>,
-            <Box>Header</Box>,
-            <Box>Header</Box>,
-            <Box>Header</Box>,
-            <Box>Header</Box>,
-            <Box>Header</Box>,
-            <Box>Header</Box>,
-            <Box>Header</Box>,
-          ]}
-          body={[
-            [
-              <Box>Governance Risk</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-            ],
-            [
-              <Box>Oracle Risk</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-            ],
-            [
-              <Box>Long Tail Collateral</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-            ],
-          ]}
-        />
         <Box sx={{ mt: 7 }}>
           <ProductHubView
             headerGradient={palette.icon.symbolGradient}
@@ -112,7 +68,7 @@ function BetterOnSummerPage({
           />
           <ProductHubPromoCardsList promoCards={promoCards} />
         </Box>
-        <Heading as="h2" variant="header2" sx={{ mb: '24px', textAlign: 'center' }}>
+        <Heading as="h2" variant="header2" sx={{ mt: 7, mb: '24px', textAlign: 'center' }}>
           {infoBoxesTitle}
         </Heading>
         <Text as="p" variant="paragraph2" sx={{ color: 'neutral80', textAlign: 'center' }}>
@@ -158,6 +114,50 @@ function BetterOnSummerPage({
         <Heading as="h2" variant="header2" sx={{ mt: 7, mb: '40px', textAlign: 'center' }}>
           {comparisionTableTitle}
         </Heading>
+        <ComparisionTable
+          header={[
+            <Box>Protocol Tradeoffs</Box>,
+            <Box>Header</Box>,
+            <Box>Header</Box>,
+            <Box>Header</Box>,
+            <Box>Header</Box>,
+            <Box>Header</Box>,
+            <Box>Header</Box>,
+            <Box>Header</Box>,
+          ]}
+          body={[
+            [
+              <Box>Governance Risk</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+            ],
+            [
+              <Box>Oracle Risk</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+            ],
+            [
+              <Box>Long Tail Collateral</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+            ],
+          ]}
+        />
       </Box>
     </MarketingLayout>
   )
