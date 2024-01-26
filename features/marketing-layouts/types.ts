@@ -31,6 +31,17 @@ export interface MarketingTemplateHeroProps {
   title: string
 }
 
+export interface MarketingTemplateInfoBoxProps {
+  description: string
+  image: string
+  link?: {
+    url: string
+    label: string
+  }
+  title: string
+  tokens?: string[]
+}
+
 export interface MarketingTemplateProductsProps {
   actionsList?: {
     icon: keyof typeof marketingTemplatesIcons
@@ -61,6 +72,9 @@ export interface MarketingTemplatePageProps {
   benefitsTitle: string
   comparisionTableTitle: string
   hero: MarketingTemplateHeroProps
+  infoBoxesTitle: string
+  infoBoxesDescription: string
+  infoBoxes: MarketingTemplateInfoBoxProps[]
   palette: MarketingTemplatePalette
   productFinder: {
     initialNetwork?: ProductHubSupportedNetworks[]
