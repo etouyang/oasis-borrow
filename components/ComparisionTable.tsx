@@ -1,10 +1,38 @@
+import { Icon } from 'components/Icon'
 import type { FC, ReactNode } from 'react'
 import React from 'react'
-import { Box } from 'theme-ui'
+import { checkmark, close } from 'theme/icons'
+import { Box, Flex } from 'theme-ui'
+
+interface ComparisionTableIconProps {
+  type: 'positive' | 'negative'
+}
 
 interface ComparisionTableProps {
   body: ReactNode[][]
   header: ReactNode[]
+}
+
+export const ComparisionTableIcon: FC<ComparisionTableIconProps> = ({ type }) => {
+  return (
+    <Flex
+      sx={{
+        display: 'inline-flex',
+        width: '40px',
+        height: '40px',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 'ellipse',
+        bg: type === 'positive' ? 'interactive10' : 'critical10',
+      }}
+    >
+      {type === 'positive' ? (
+        <Icon icon={checkmark} color="interactive100" size="16px" />
+      ) : (
+        <Icon icon={close} color="critical100" size="12px" />
+      )}
+    </Flex>
+  )
 }
 
 export const ComparisionTable: FC<ComparisionTableProps> = ({ body, header }) => {
@@ -34,12 +62,17 @@ export const ComparisionTable: FC<ComparisionTableProps> = ({ body, header }) =>
                           pl: 4,
                           bg: 'neutral10',
                           zIndex: 2,
+                          textAlign: 'left',
                         }
                       : { textAlign: 'center' }),
                     py: '24px',
                     color: 'neutral80',
                     borderBottom: '1px solid',
                     borderBottomColor: 'neutral20',
+                    img: {
+                      maxHeight: 4,
+                      verticalAlign: 'bottom',
+                    },
                   }}
                 >
                   {row}
@@ -73,9 +106,10 @@ export const ComparisionTable: FC<ComparisionTableProps> = ({ body, header }) =>
                             pl: 4,
                             bg: 'neutral10',
                             zIndex: 1,
+                            textAlign: 'left',
                           }
                         : {
-                            px: 4,
+                            // px: 4,
                             textAlign: 'center',
                           }),
                       py: 4,

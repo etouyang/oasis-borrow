@@ -1,5 +1,5 @@
 import { NetworkNames } from 'blockchain/networks'
-import { ComparisionTable } from 'components/ComparisionTable'
+import { ComparisionTable, ComparisionTableIcon } from 'components/ComparisionTable'
 import { usePreloadAppDataContext } from 'components/context/PreloadAppDataContextProvider'
 import { MarketingLayout } from 'components/layouts/MarketingLayout'
 import { SimpleCarousel } from 'components/SimpleCarousel'
@@ -116,45 +116,33 @@ function BetterOnSummerPage({
         </Heading>
         <ComparisionTable
           header={[
-            <Box>Protocol Tradeoffs</Box>,
-            <Box>Header</Box>,
-            <Box>Header</Box>,
-            <Box>Header</Box>,
-            <Box>Header</Box>,
-            <Box>Header</Box>,
-            <Box>Header</Box>,
-            <Box>Header</Box>,
+            'Protocol Tradeoffs',
+            'Aave',
+            'Ajna',
+            'Spark',
+            'Maker',
           ]}
           body={[
             [
-              <Box>Governance Risk</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
+              'Governance Risk',
+              <ComparisionTableIcon type="negative" />,
+              <ComparisionTableIcon type="positive" />,
+              <ComparisionTableIcon type="positive" />,
+              <ComparisionTableIcon type="negative" />,
             ],
             [
-              <Box>Oracle Risk</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
+              'Oracle Risk',
+              <ComparisionTableIcon type="positive" />,
+              <ComparisionTableIcon type="positive" />,
+              <ComparisionTableIcon type="positive" />,
+              <ComparisionTableIcon type="positive" />,
             ],
             [
-              <Box>Long Tail Collateral</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
+              'Long Tail Collateral',
+              <ComparisionTableIcon type="negative" />,
+              <ComparisionTableIcon type="negative" />,
+              <ComparisionTableIcon type="negative" />,
+              <ComparisionTableIcon type="positive" />,
             ],
           ]}
         />
