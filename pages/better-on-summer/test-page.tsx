@@ -56,9 +56,7 @@ function BetterOnSummerPage({
         <MarketingTemplateHero {...hero} />
         <ComparisionTable
           header={[
-            <Box>Header</Box>,
-            <Box>Header</Box>,
-            <Box>Header</Box>,
+            <Box>Protocol Tradeoffs</Box>,
             <Box>Header</Box>,
             <Box>Header</Box>,
             <Box>Header</Box>,
@@ -69,21 +67,7 @@ function BetterOnSummerPage({
           ]}
           body={[
             [
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-            ],
-            [
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
+              <Box>Governance Risk</Box>,
               <Box>Content</Box>,
               <Box>Content</Box>,
               <Box>Content</Box>,
@@ -93,21 +77,7 @@ function BetterOnSummerPage({
               <Box>Content</Box>,
             ],
             [
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-            ],
-            [
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
+              <Box>Oracle Risk</Box>,
               <Box>Content</Box>,
               <Box>Content</Box>,
               <Box>Content</Box>,
@@ -117,9 +87,7 @@ function BetterOnSummerPage({
               <Box>Content</Box>,
             ],
             [
-              <Box>Content</Box>,
-              <Box>Content</Box>,
-              <Box>Content</Box>,
+              <Box>Long Tail Collateral</Box>,
               <Box>Content</Box>,
               <Box>Content</Box>,
               <Box>Content</Box>,
