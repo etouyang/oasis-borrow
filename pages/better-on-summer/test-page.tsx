@@ -1,4 +1,5 @@
 import { NetworkNames } from 'blockchain/networks'
+import { ComparisionTable } from 'components/ComparisionTable'
 import { usePreloadAppDataContext } from 'components/context/PreloadAppDataContextProvider'
 import { MarketingLayout } from 'components/layouts/MarketingLayout'
 import { SimpleCarousel } from 'components/SimpleCarousel'
@@ -53,6 +54,82 @@ function BetterOnSummerPage({
     <MarketingLayout topBackground="none" backgroundGradient={palette.mainGradient}>
       <Box sx={{ width: '100%' }}>
         <MarketingTemplateHero {...hero} />
+        <ComparisionTable
+          header={[
+            <Box>Header</Box>,
+            <Box>Header</Box>,
+            <Box>Header</Box>,
+            <Box>Header</Box>,
+            <Box>Header</Box>,
+            <Box>Header</Box>,
+            <Box>Header</Box>,
+            <Box>Header</Box>,
+            <Box>Header</Box>,
+            <Box>Header</Box>,
+          ]}
+          body={[
+            [
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+            ],
+            [
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+            ],
+            [
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+            ],
+            [
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+            ],
+            [
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+              <Box>Content</Box>,
+            ],
+          ]}
+        />
         <Box sx={{ mt: 7 }}>
           <ProductHubView
             headerGradient={palette.icon.symbolGradient}
@@ -89,6 +166,7 @@ function BetterOnSummerPage({
             </Box>
           }
           slidesToDisplay={2}
+          slidesToScroll={2}
           overflow="visible"
           slides={benefits.map((benefit, i) => (
             <MarketingTemplateBenefitBox key={i} {...benefit} {...palette.icon} />
