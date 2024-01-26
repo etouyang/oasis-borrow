@@ -25,6 +25,7 @@ function BetterOnSummerPage({
   benefits,
   benefitsSubtitle,
   benefitsTitle,
+  comparisionTableTitle,
   hero,
   palette,
   productFinder,
@@ -93,6 +94,9 @@ function BetterOnSummerPage({
             <MarketingTemplateBenefitBox key={i} {...benefit} {...palette.icon} />
           ))}
         />
+        <Heading as="h2" variant="header2" sx={{ mt: 7, mb: '40px', textAlign: 'center' }}>
+          {comparisionTableTitle}
+        </Heading>
       </Box>
     </MarketingLayout>
   )
@@ -240,10 +244,13 @@ export async function getServerSideProps({ locale }: GetServerSidePropsContext) 
     },
   ]
 
+  const comparisionTableTitle = 'Whats the difference between Aave and other protocols?'
+
   const marketingLayoutProps: MarketingTemplatePageProps = {
     benefits,
     benefitsSubtitle,
     benefitsTitle,
+    comparisionTableTitle,
     productFinder,
     products,
     productsTitle,

@@ -59,6 +59,7 @@ export interface MarketingTemplatePageProps {
   benefits: MarketingTemplateBenefitBoxProps[]
   benefitsSubtitle: string
   benefitsTitle: string
+  comparisionTableTitle: string
   hero: MarketingTemplateHeroProps
   palette: MarketingTemplatePalette
   productFinder: {
