@@ -37,66 +37,79 @@ export const ComparisionTableIcon: FC<ComparisionTableIconProps> = ({ type }) =>
 
 export const ComparisionTable: FC<ComparisionTableProps> = ({ body, header }) => {
   return (
-    <Box
-      sx={{
-        position: 'relative',
-        borderBottom: '1px solid',
-        borderBottomColor: 'neutral20',
-        bg: 'neutral10',
-      }}
-    >
-      <Box sx={{ pl: '50%', overflowX: 'auto' }}>
-        <Box as="table" sx={{ minWidth: '100%', borderSpacing: 0, borderCollapse: 'collapse' }}>
-          <Box as="thead">
-            <Box as="tr">
-              {header.map((row, i) => (
-                <Box
-                  as="td"
-                  variant="text.header5"
-                  sx={{
-                    ...(i === 0
-                      ? {
-                          position: 'absolute',
-                          left: 0,
-                          width: '50%',
-                          pl: 4,
-                          bg: 'neutral10',
-                          zIndex: 2,
-                          textAlign: 'left',
-                        }
-                      : { textAlign: 'center' }),
-                    py: '24px',
-                    color: 'neutral80',
-                    borderBottom: '1px solid',
-                    borderBottomColor: 'neutral20',
-                    img: {
-                      maxHeight: 4,
-                      verticalAlign: 'bottom',
-                    },
-                  }}
-                >
-                  {row}
-                </Box>
+    <>
+      <Box
+        sx={{
+          position: 'relative',
+          borderBottom: '1px solid',
+          borderBottomColor: 'neutral20',
+          bg: 'neutral10',
+        }}
+      >
+        <Box sx={{ overflowX: 'auto' }}>
+          <Box>
+            <Flex>
+              <Box variant="text.header5" sx={{ width: '50%', flexShrink: '0' }}>
+                {header[0]}
+              </Box>
+              <Flex sx={{ width: '50%', flexShrink: '0', columnGap: 4 }}>
+                {header.slice(1, header.length).map((row) => (
+                  <Box
+                    variant="text.header5"
+                    sx={{ flex: '1', minWidth: '120px', textAlign: 'center' }}
+                  >
+                    {row}
+                  </Box>
+                ))}
+              </Flex>
+            </Flex>
+            <Box>
+              {body.map((column) => (
+                <Flex sx={{}}>
+                  <Box
+                    variant="text.boldParagraph1"
+                    sx={{ width: '50%', flexShrink: '0', opacity: 0 }}
+                  >
+                    {column[0]}
+                  </Box>
+                  <Box
+                    variant="text.boldParagraph1"
+                    sx={{ position: 'absolute', left: 0, width: '50%', flexShrink: '0', bg: 'neutral10' }}
+                  >
+                    {column[0]}
+                  </Box>
+                  <Flex sx={{ width: '50%', flexShrink: '0', columnGap: 4 }}>
+                    {column.slice(1, column.length).map((row) => (
+                      <Box
+                        variant="text.paragraph1"
+                        sx={{ flex: '1', minWidth: '120px', textAlign: 'center' }}
+                      >
+                        {row}
+                      </Box>
+                    ))}
+                  </Flex>
+                </Flex>
               ))}
             </Box>
           </Box>
-          <Box as="tbody">
-            {body.map((column) => (
-              <Box
-                as="tr"
-                sx={{
-                  ':first-of-type': {
-                    td: { pt: 5 },
-                  },
-                  ':last-of-type': {
-                    td: { pb: 5 },
-                  },
-                }}
-              >
-                {column.map((row, i) => (
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          position: 'relative',
+          borderBottom: '1px solid',
+          borderBottomColor: 'neutral20',
+          bg: 'neutral10',
+        }}
+      >
+        <Box sx={{ pl: '50%', overflowX: 'auto' }}>
+          <Box as="table" sx={{ minWidth: '100%', borderSpacing: 0, borderCollapse: 'collapse' }}>
+            <Box as="thead">
+              <Box as="tr">
+                {header.map((row, i) => (
                   <Box
                     as="td"
-                    variant={i === 0 ? 'text.boldParagraph1' : 'text.paragraph1'}
+                    variant="text.header5"
                     sx={{
                       ...(i === 0
                         ? {
@@ -105,24 +118,69 @@ export const ComparisionTable: FC<ComparisionTableProps> = ({ body, header }) =>
                             width: '50%',
                             pl: 4,
                             bg: 'neutral10',
-                            zIndex: 1,
+                            zIndex: 2,
                             textAlign: 'left',
                           }
-                        : {
-                            // px: 4,
-                            textAlign: 'center',
-                          }),
-                      py: 4,
+                        : { textAlign: 'center' }),
+                      py: '24px',
+                      color: 'neutral80',
+                      borderBottom: '1px solid',
+                      borderBottomColor: 'neutral20',
+                      img: {
+                        maxHeight: 4,
+                        verticalAlign: 'bottom',
+                      },
                     }}
                   >
                     {row}
                   </Box>
                 ))}
               </Box>
-            ))}
+            </Box>
+            <Box as="tbody">
+              {body.map((column) => (
+                <Box
+                  as="tr"
+                  sx={{
+                    ':first-of-type': {
+                      td: { pt: 5 },
+                    },
+                    ':last-of-type': {
+                      td: { pb: 5 },
+                    },
+                  }}
+                >
+                  {column.map((row, i) => (
+                    <Box
+                      as="td"
+                      variant={i === 0 ? 'text.boldParagraph1' : 'text.paragraph1'}
+                      sx={{
+                        ...(i === 0
+                          ? {
+                              position: 'absolute',
+                              left: 0,
+                              width: '50%',
+                              pl: 4,
+                              bg: 'neutral10',
+                              zIndex: 1,
+                              textAlign: 'left',
+                            }
+                          : {
+                              // px: 4,
+                              textAlign: 'center',
+                            }),
+                        py: 4,
+                      }}
+                    >
+                      {row}
+                    </Box>
+                  ))}
+                </Box>
+              ))}
+            </Box>
           </Box>
         </Box>
       </Box>
-    </Box>
+    </>
   )
 }
