@@ -57,6 +57,7 @@ export function getAddresses(
     'SDAI',
     'LUSD',
     'FRAX',
+    'MKR',
   ])
   ensureChainlinkTokenPairsExist(networkId, contracts, ['ETHUSD'])
   ensurePropertiesExist(networkId, contracts, ['swapAddress'])
@@ -77,6 +78,7 @@ export function getAddresses(
       SDAI: contracts.tokens['SDAI'].address,
       LUSD: contracts.tokens['LUSD'].address,
       FRAX: contracts.tokens['FRAX'].address,
+      MKR: contracts.tokens['MKR'].address,
     } as AaveLikeStrategyAddresses['tokens'],
     chainlinkEthUsdPriceFeed: contracts.chainlinkPriceOracle['ETHUSD'].address,
     operationExecutor: contracts.operationExecutor.address,
