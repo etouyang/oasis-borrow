@@ -210,7 +210,7 @@ Current we have two containers:
 Once you are in the project directory, please execute the following command:
 
 ```bash
-docker-compose -f ./scripts/docker-compose.yml up
+docker-compose -f ./scripts/docker/docker-compose.yaml up
 ```
 
 Alternative to that is to do the following steps:
