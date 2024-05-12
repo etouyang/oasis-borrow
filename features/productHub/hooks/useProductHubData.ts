@@ -41,7 +41,7 @@ export const useProductHubData = ({ protocols }: ProductHubDataWithCards): Produ
         },
       })
       .then(({ data }) => {
-        // console.log('1111', data)
+        console.log('1111', data)
         setState({
           ...state,
           data,
@@ -50,7 +50,7 @@ export const useProductHubData = ({ protocols }: ProductHubDataWithCards): Produ
         })
       })
       .catch(() => {
-        // console.log('222')
+        console.log('222')
         setState({
           ...state,
           data: undefined,
