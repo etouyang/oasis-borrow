@@ -85,9 +85,11 @@ export function getBackendRpcProvider(networkId: NetworkIds): JsonRpcBatchProvid
     stage: process.env.NODE_ENV === 'production' ? 'prod' : 'dev',
     source: 'backend',
   }
-
-  const rpcBase = getRpcGatewayBaseUrl()
-  const rpcGatewayUrl = getRpcGatewayUrl(network.name, rpcConfig, rpcBase)
+  console.log('baseUrl error1')
+  // const rpcBase = getRpcGatewayBaseUrl()
+  // const rpcGatewayUrl = getRpcGatewayUrl(network.name, rpcConfig, rpcBase)
+  const rpcGatewayUrl = "https://mainnet.infura.io/v3/87d82fb9e90b4584a77288417cb234d9"
+  console.log('baseUrl error2')
 
   if (!rpcGatewayUrl) {
     throw new Error('RPC provider is not available')

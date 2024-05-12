@@ -141,6 +141,7 @@ class ProviderFactory {
    * @returns The JsonRpcBatchProvider instance.
    */
   getProvider(url: ConnectionInfo | string, network: Networkish): JsonRpcBatchProvider {
+    console.log('getProvider', url, network)
     const key = `${url}-${network}`
     if (!this.providers.has(key)) {
       this.providers.set(key, new JsonRpcBatchProvider(url, network))

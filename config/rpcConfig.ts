@@ -5,11 +5,12 @@ import { infuraProjectId } from './runtimeConfig'
 
 function getRpc(network: NetworkNames): string {
   let rpcUrl: string
-  try {
-    rpcUrl = `${window?.location.origin}/api/rpcGateway?network=${network}&clientId=${clientId}`
-  } catch (error) {
-    rpcUrl = `https://${network}.infura.io/v3/${infuraProjectId}`
-  }
+  // try {
+  //   rpcUrl = `${window?.location.origin}/api/rpcGateway?network=${network}&clientId=${clientId}`
+  // } catch (error) {
+  //   rpcUrl = `https://${network}.infura.io/v3/${infuraProjectId}`
+  // }
+  rpcUrl = `https://mainnet.infura.io/v3/${infuraProjectId}`
   return rpcUrl
 }
 

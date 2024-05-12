@@ -9,25 +9,25 @@ import type { MixpanelDevelopmentType, MixpanelPropertyNameType, MixpanelType } 
 export function enableMixpanelDevelopmentMode<T>(mixpanel: T): T | MixpanelDevelopmentType {
   const env = getConfig()?.publicRuntimeConfig.mixpanelEnv || process.env.MIXPANEL_ENV
 
-  if (env !== 'production' && env !== 'staging') {
-    return {
-      track: function (eventType: string, payload: any) {
-        console.info('\n✨ Mixpanel Event: ', eventType, payload, '\n')
-      },
-      get_distinct_id: () => 'test_id',
-      has_opted_out_tracking: () => false,
-      get_property: (propertyName: MixpanelPropertyNameType) => {
-        switch (propertyName) {
-          case '$initial_referrer':
-            return '$direct'
-          case '$user_id':
-            return 'test_user_id'
-          default:
-            return null
-        }
-      },
-    }
-  }
+  // if (env !== 'production' && env !== 'staging') {
+  //   return {
+  //     track: function (eventType: string, payload: any) {
+  //       console.info('\n✨ Mixpanel Event: ', eventType, payload, '\n')
+  //     },
+  //     get_distinct_id: () => 'test_id',
+  //     has_opted_out_tracking: () => false,
+  //     get_property: (propertyName: MixpanelPropertyNameType) => {
+  //       switch (propertyName) {
+  //         case '$initial_referrer':
+  //           return '$direct'
+  //         case '$user_id':
+  //           return 'test_user_id'
+  //         default:
+  //           return null
+  //       }
+  //     },
+  //   }
+  // }
 
   return mixpanel
 }

@@ -3,7 +3,6 @@ import axios from 'axios'
 import type { ProductHubData } from 'features/productHub/types'
 import type { ProductHubDataParams } from 'handlers/product-hub/types'
 import { useCallback, useEffect, useState } from 'react'
-import respJson from './response.json';
 
 export interface ProductHubDataState {
   data?: ProductHubData
@@ -42,6 +41,7 @@ export const useProductHubData = ({ protocols }: ProductHubDataWithCards): Produ
         },
       })
       .then(({ data }) => {
+        // console.log('1111', data)
         setState({
           ...state,
           data,
@@ -50,20 +50,22 @@ export const useProductHubData = ({ protocols }: ProductHubDataWithCards): Produ
         })
       })
       .catch(() => {
+        // console.log('222')
+        setState({
+          ...state,
+          data: undefined,
+          isError: true,
+          isLoading: false,
+        })
+      })
+      .finally(() => {
+        console.log('3333')
         // setState({
         //   ...state,
         //   data: undefined,
         //   isError: true,
         //   isLoading: false,
         // })
-      })
-      .finally(() => {
-        setState({
-          ...state,
-          data: respJson,
-          isError: false,
-          isLoading: false,
-        })
       })
   }, [protocols.map((p) => p).join('-')])
 

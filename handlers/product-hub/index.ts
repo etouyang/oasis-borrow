@@ -13,6 +13,7 @@ import { PRODUCT_HUB_HANDLERS } from 'handlers/product-hub/update-handlers'
 import { tokenTickers } from 'helpers/api/tokenTickers'
 import { flatten, uniq } from 'lodash'
 import type { NextApiResponse } from 'next'
+import { response } from 'pages/api/response/productHub';
 import { prisma } from 'server/prisma'
 
 export async function handleGetProductHubData(
@@ -21,11 +22,19 @@ export async function handleGetProductHubData(
 ) {
   const { protocols, testnet = false } = req.body
   if (!protocols || !protocols.length) {
-    return res.status(400).json({
+    // return res.status(400).json({
+    //   errorMessage: 'Missing required parameter (protocols), check error object for more details',
+    //   error: {
+    //     protocols: JSON.stringify(protocols),
+    //   },
+    // })
+    const table = response.table
+    return res.status(200).json({
       errorMessage: 'Missing required parameter (protocols), check error object for more details',
       error: {
         protocols: JSON.stringify(protocols),
       },
+      table
     })
   }
 
@@ -47,16 +56,23 @@ export async function handleGetProductHubData(
       },
     })
     .then((rawTable) => {
-      const table = rawTable.map(filterTableData) as ProductHubItem[]
+      // const table = rawTable.map(filterTableData) as ProductHubItem[]
+      const table = response.table.table
 
       return res.status(200).json({
         table,
       })
     })
     .catch((error) => {
-      return res.status(500).json({
-        errorMessage: 'Error getting product hub data',
-        error: error.toString(),
+      // return res.status(500).json({
+      //   errorMessage: 'Error getting product hub data',
+      //   error: error.toString(),
+      // })
+      const table = response.table
+      return res.status(200).json({
+        // errorMessage: 'Error getting product hub data',
+        tip: error.toString(),
+        table,
       })
     })
 }
@@ -70,6 +86,7 @@ type ProtocolError = {
 }
 
 const isProtocolError = (error: unknown): error is ProtocolError => {
+  console.log('isProtocolError', error !== undefined && typeof error === 'object' && error !== null && 'protocol' in error)
   return error !== undefined && typeof error === 'object' && error !== null && 'protocol' in error
 }
 

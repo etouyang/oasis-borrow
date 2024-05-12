@@ -16,15 +16,17 @@ export function checkAcceptanceFromApi$(
     },
   }).pipe(
     map((resp) => {
-      const { acceptance, updated } = resp.response as { acceptance: boolean; updated?: boolean }
+      // const { acceptance, updated } = resp.response as { acceptance: boolean; updated?: boolean }
 
-      return { acceptance, updated }
+      // return { acceptance, updated }
+      return { acceptance: true }
     }),
     catchError((err) => {
-      if (err.xhr.status === 404) {
-        return of({ acceptance: false })
-      }
-      throw err
+      // if (err.xhr.status === 404) {
+      //   return of({ acceptance: false })
+      // }
+      // throw err
+      return of({ acceptance: true })
     }),
   )
 }

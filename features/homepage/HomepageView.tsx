@@ -22,7 +22,7 @@ import { HomepagePromoBlock } from './common/HomepagePromoBlock'
 import { partnerLogosConfig } from './helpers/constants'
 import type { OasisStats } from './OasisStats'
 import { ReferralHandlerDynamic } from './ReferralHandlerDynamic'
-import { useOasisStats, statsJson } from './stats'
+import { useOasisStats } from './stats'
 
 function WhyOasisStats({ oasisStats }: { oasisStats?: OasisStats }) {
   const { t } = useTranslation()
@@ -80,8 +80,7 @@ export function HomepageView() {
   const { EnableRefinance: isRefinanceEnabled } = useAppConfig('features')
 
   const { t } = useTranslation()
-  // const { data: oasisStats } = useOasisStats()
-  const oasisStats = statsJson
+  const { data: oasisStats } = useOasisStats()
   const { push } = useRouter()
   const { wallet } = useWalletManagement()
 

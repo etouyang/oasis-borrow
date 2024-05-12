@@ -24,6 +24,7 @@ interface WithTermsOfServiceProps {
 }
 
 function getStageErrorMessage(stage: TermsAcceptanceStage) {
+  console.log('getStageErrorMessage', stage)
   switch (stage) {
     case 'acceptanceCheckFailed':
       return 'acceptance-check-failed'

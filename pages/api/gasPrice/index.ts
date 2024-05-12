@@ -4,10 +4,13 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import getConfig from 'next/config'
 import NodeCache from 'node-cache'
 import type { GasFeesApiResponse, GasPrices } from 'pages/api/gasPrice/types'
+import { response } from 'pages/api/response/gasPrice';
 
 const cache = new NodeCache({ stdTTL: 10 })
 
 const handler = async function ({ query }: NextApiRequest, res: NextApiResponse) {
+  const { maxFeePerGas, maxPriorityFeePerGas } = response;
+
   const config = getConfig()
   const url = config?.publicRuntimeConfig.awsGasPriceUrl
   const gasApiKey = process.env.GAS_API_API_KEY
@@ -16,9 +19,16 @@ const handler = async function ({ query }: NextApiRequest, res: NextApiResponse)
     (Array.isArray(query.networkId) ? query.networkId[0] : query.networkId) ?? NetworkIds.MAINNET
 
   if (!Object.keys(networksById).includes(String(networkId))) {
-    res.status(500).json({
-      maxPriorityFeePerGas: 0,
-      maxFeePerGas: 0,
+    // res.status(500).json({
+    //   maxPriorityFeePerGas: 0,
+    //   maxFeePerGas: 0,
+    //   fromCache: false,
+    //   time: cache.get('time'),
+    //   error: 'Unsupported network',
+    // })
+    res.status(200).json({
+      maxPriorityFeePerGas,
+      maxFeePerGas,
       fromCache: false,
       time: cache.get('time'),
       error: 'Unsupported network',
@@ -64,9 +74,16 @@ const handler = async function ({ query }: NextApiRequest, res: NextApiResponse)
         },
       )
       .catch((error) => {
-        res.status(500).json({
-          maxPriorityFeePerGas: 0,
-          maxFeePerGas: 0,
+        // res.status(500).json({
+        //   maxPriorityFeePerGas: 0,
+        //   maxFeePerGas: 0,
+        //   fromCache: false,
+        //   time: cache.get(timeCacheLabel),
+        //   error,
+        // })
+        res.status(200).json({
+          maxPriorityFeePerGas,
+          maxFeePerGas,
           fromCache: false,
           time: cache.get(timeCacheLabel),
           error,

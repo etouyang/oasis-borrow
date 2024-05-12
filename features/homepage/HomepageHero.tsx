@@ -8,7 +8,7 @@ import { Container, Flex, Grid, Text } from 'theme-ui'
 import { Hero } from './common/Hero'
 import { HomepagePromoBlock } from './common/HomepagePromoBlock'
 import type { OasisStats } from './OasisStats'
-import { useOasisStats, statsJson } from './stats'
+import { useOasisStats } from './stats'
 
 function StatCell({ label, value }: { label: string; value: string }) {
   return (
@@ -68,8 +68,7 @@ function ManagedVolumeStats({ oasisStats }: { oasisStats?: OasisStats }) {
 }
 
 export const HomepageHero = () => {
-  // const { data: oasisStats } = useOasisStats()
-  const oasisStats = statsJson
+  const { data: oasisStats } = useOasisStats()
   const { isConnected } = useAccount()
   return (
     <Container>

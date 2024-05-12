@@ -50,6 +50,7 @@ export function PreloadAppDataContextProvider({ children }: PropsWithChildren<{}
       LendingProtocol.SparkV3,
     ].filter((p) => p) as LendingProtocol[],
   })
+  console.log('productHub', productHub)
 
   useEffect(() => {
     const setup = async () => {
