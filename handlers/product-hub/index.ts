@@ -57,7 +57,7 @@ export async function handleGetProductHubData(
     })
     .then((rawTable) => {
       // const table = rawTable.map(filterTableData) as ProductHubItem[]
-      const table = response.table.table
+      const table = response.table
       console.log('xxxxx then', table)
       return res.status(200).json({
         table,
@@ -76,7 +76,7 @@ export async function handleGetProductHubData(
         table,
       })
     }).finally(() => {
-      const table = response.table.table
+      const table = response.table
       console.log('xxxxx finally', table)
       return res.status(200).json({
         table,
